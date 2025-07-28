@@ -1,9 +1,12 @@
+using HamyarApp.NewFolder;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<MiddlewareClass>();
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
 
-app.Use(async (HttpContext context, RequestDelegate next) =>
+app.Use(async (context, next) =>
 {
 
     //context.Response.StatusCode = 400;
@@ -11,14 +14,8 @@ app.Use(async (HttpContext context, RequestDelegate next) =>
     await next(context);
 
 });
+app.UseMiddleware<MiddlewareClass>();
 app.Use(async (context, next) =>
-{
-
-    await context.Response.WriteAsync("Text2");
-    await next(context);
-
-});
-app.Use(async (HttpContext context, RequestDelegate next) =>
 {
 
     await context.Response.WriteAsync("Text3");
