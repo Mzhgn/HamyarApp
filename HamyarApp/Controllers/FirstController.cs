@@ -2,11 +2,17 @@
 
 namespace HamyarApp.Controllers
 {
-    public class FirstController : Controller
+    public class FirstController 
     {
-        public IActionResult Index()
+
+        [Route("url1")]
+        public string test1()
         {
-            return View();
+
+
+            return "Hello everybody";
+
+
         }
     }
 }
