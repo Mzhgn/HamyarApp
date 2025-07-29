@@ -2,15 +2,36 @@
 
 namespace HamyarApp.Controllers
 {
-    public class FirstController 
+    public class FirstController
     {
 
-        [Route("url1")]
+        [Route("Home")]
+        [Route("/")]
+
         public string test1()
         {
 
 
-            return "Hello everybody";
+            return "Home Page";
+
+
+        }
+
+        [Route("About")]
+        public string test2()
+        {
+
+
+            return "Abou us";
+
+
+        }
+        [Route("Contact")]
+        public string test3()
+        {
+
+
+            return "Contact Us";
 
 
         }
