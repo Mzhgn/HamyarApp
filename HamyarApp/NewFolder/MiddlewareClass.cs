@@ -10,4 +10,17 @@ namespace HamyarApp.NewFolder
             await context.Response.WriteAsync("Finished");
         }
     }
+
+    public static class MyMiddleWare
+    {
+
+        public static IApplicationBuilder UseTests(this IApplicationBuilder app)
+        {
+
+
+            return app.UseMiddleware<MiddlewareClass>();
+
+
+        }
+    }
 }
