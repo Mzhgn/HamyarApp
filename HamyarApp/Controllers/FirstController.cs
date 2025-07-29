@@ -26,12 +26,12 @@ namespace HamyarApp.Controllers
 
 
         }
-        [Route("Contact")]
-        public string test3()
+        [Route("Download")]
+        public VirtualFileResult DownloadFile()
         {
 
 
-            return "Contact Us";
+            return new VirtualFileResult("/nature.jpg", "image/png");
 
 
         }

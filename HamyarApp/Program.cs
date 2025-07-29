@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 //builder.Services.AddTransient<MiddlewareClass>();
 var app = builder.Build();
 
-//app.UseStaticFiles();
+app.UseStaticFiles();
 
 app.UseRouting();
 app.UseEndpoints(endpoints =>
