@@ -5,19 +5,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<MiddlewareClass>();
 var app = builder.Build();
 
-app.UseStaticFiles();
+//app.UseStaticFiles();
 
-app.UseRouting();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.Map("/",async Context =>
-    {
-        await Context.Response.WriteAsync("hi");
-    });
-});
+//app.UseRouting();
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.Map("/",async Context =>
+//    {
+//        await Context.Response.WriteAsync("hi");
+//    });
+//});
 
 
-//app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello World!");
 
 app.Run();
 
