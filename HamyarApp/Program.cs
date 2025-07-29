@@ -1,17 +1,40 @@
+using HamyarApp.ConstraintFolder;
 using HamyarApp.NewFolder;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<MiddlewareClass>();
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
-
-
+    endpoints.Map("/",async Context =>
+    {
+        await Context.Response.WriteAsync("hi");
+    });
 });
 
+
 //app.MapGet("/", () => "Hello World!");
+
+app.Run();
+
+
+//builder.Services.AddRouting(option =>
+//{
+
+//    option.ConstraintMap.Add("month", typeof(MyConstraints));
+//});
+
+//app.UseRouting();
+//app.UseEndpoints(endpoints =>
+//{
+
+
+//});
+
 
 //app.Use(async (context, next) =>
 //{
@@ -44,4 +67,3 @@ app.UseEndpoints(endpoints =>
 
 
 
-app.Run();
